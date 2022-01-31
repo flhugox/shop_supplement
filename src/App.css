@@ -1,6 +1,33 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Staatliches&display=swap');
+@import url('https://fonts.googleapis.com/css?family=VT323&display=swap');
+
 .App {
   text-align: center;
 }
+
+
+header .logo{
+  font-family: VT323;
+  position: fixed;
+  color: #fff;
+  top: 0;
+  height: 50px;
+  font-size: 3em;
+  }
+  h3{
+    font-family: Open Sans;
+    color: #fff;
+    }
+  
+  a{
+  position: fixed;
+  text-decoration: none;
+  color: #f4f4f4;
+  padding-left: 22px;
+  margin: 0;
+  }
+  
 
 .App-logo {
   height: 40vmin;

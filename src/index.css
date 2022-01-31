@@ -9,7 +9,7 @@ html::-webkit-scrollbar {
 
 body {
   font-family: 'Montserrat', sans-serif;
-  background-color: #f2f4f8;
+  background-color: #000000;
   margin: 0;
   box-sizing: border-box;
 }
@@ -202,6 +202,19 @@ button {
 
 }
 
+.Reminder_Sec{
+  position: fixed;
+  bottom: 25px;
+  padding: 45px;
+  text-align: right;
+  right: 0;
+  }
+  
+  .Line2{
+    padding-top: 30px;
+    line-height: 45px;
+  }
+  
 .showPassword {
   cursor: pointer;
   position: absolute;
