@@ -28,7 +28,13 @@ header .logo{
   margin: 0;
   }
   
+.cardAcciones{
+  margin-left: 5%;
+}
 
+.cartButton{
+  margin-left: 16%;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
