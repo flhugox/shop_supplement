@@ -11,33 +11,44 @@ import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
 import { Button } from '@mui/material';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-import  { useState,useEffect  } from 'react';
+import { useState, useEffect } from 'react';
 function ItemCount({ stock, initial, onAdd }) {
     const [count, setCount] = useState(0);
 
-   function addTo(){
-       onAdd(count)
-   } 
-  useEffect(function() {
-     
-    if( count === 0 ) {
-        setCount(initial);
+    function addTo() {
+        onAdd(count)
     }
-    if (count > stock) {   
-        setCount(count-1)
+    /* useEffect(function() {
+        
+       if( count === 0 ) {
+           setCount(initial);
+       }
+       if (count > stock) {   
+           setCount(count-1)
+       }
+       if (count < 0) {   
+           setCount(count+1)
+       }
+     }, [count])*/
+
+    const sumar = () => {
+        if (count < stock) {
+            setCount(count + 1)
+        }
     }
-    if (count < 0) {   
-        setCount(count+1)
+    const restar = () => {
+        if (count > initial) {
+            setCount(count - 1)
+        }
     }
-  }, [count])
-  
+
     return (
         <div>
             <Grid container spacing={2}>
-                <Grid item xs={5} md={4}>   
+                <Grid item xs={5} md={4}>
                 </Grid>
                 <Grid item xs={5} md={4}>
-                          <Card sx={{ maxWidth: 345 }}>
+                    <Card sx={{ maxWidth: 345 }}>
                         <CardMedia
                             component="img"
                             height="140"
@@ -53,24 +64,24 @@ function ItemCount({ stock, initial, onAdd }) {
                             </Typography>
                         </CardContent>
                         <CardActions className="cardAcciones">
-                            <IconButton aria-label="delete" onClick={() => setCount(count - 1)}>
+                            <IconButton aria-label="delete" onClick={restar}>
                                 <RemoveCircleOutlineIcon />
                             </IconButton>
                             <TextField
-                            disabled
-                            id="outlined-disabled"
-                            label=""
-                            value={count}
-                           
+                                disabled
+                                id="outlined-disabled"
+                                label=""
+                                value={count}
+
                             />
-                            <IconButton  aria-label="add" onClick={() => setCount(count + 1)}>
+                            <IconButton aria-label="add" onClick={sumar}>
                                 <AddIcon />
                             </IconButton>
                         </CardActions>
                         <CardActions className="cartButton">
-                        <Button variant="outlined"  startIcon={<AddShoppingCartIcon />} onClick={addTo}>
-                        Agregar Al carrito
-                        </Button>
+                            <Button variant="outlined" startIcon={<AddShoppingCartIcon />} onClick={addTo}>
+                                Agregar Al carrito
+                            </Button>
                         </CardActions>
                     </Card>
                 </Grid>
