@@ -2,15 +2,25 @@ import { useEffect, useState } from "react"
 import ItemCount from "./itemCount"
 import { getProducts } from '../api/api'
 import ItemList from "./itemList"
+import { useParams } from "react-router-dom"
 function ItemListContainer({ greeting }) {
     const [products, setProducts] = useState([])
+    const { categoryName } = useParams();
+    console.log(categoryName)
     useEffect(() => {
-        console.log('Se ejecuta cuando se monta el componente')
+
         getProducts().then(function (products) {
-            console.log(products)
-            setProducts(products)
+            if (!categoryName) {
+                setProducts(products)
+            } else {
+                const itemByCategory = products.filter((productos) => {
+                    return productos.category === categoryName;
+                }); setProducts(itemByCategory)
+            }
+
+
         });
-    }, [])
+    }, [categoryName])
     function agregarItems(itemCount) {
         console.log(itemCount)
     }
