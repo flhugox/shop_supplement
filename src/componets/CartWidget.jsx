@@ -1,5 +1,5 @@
 import { MenuItem, Typography } from '@mui/material';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, NavLink } from 'react-router-dom';
 
 
 function CartWidget() {
@@ -11,13 +11,13 @@ function CartWidget() {
                     </span>
                     <p>Cart</p>
                 </li>*/
+        <NavLink to="category/cart">
+            <span className="material-icons">
+                shopping_cart
+            </span>
+            <p>Cart</p>
+        </NavLink>
 
-        <MenuItem>
-            <Typography textAlign="center">
-                <span className="material-icons">
-                    shopping_cart
-                </span>  <p>Cart</p></Typography>
-        </MenuItem>
     )
 }
 export default CartWidget

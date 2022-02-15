@@ -18,9 +18,7 @@ export default function Item({ item }) {
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
                         {item.title}
-                    </Typography>
-                   
-                    
+                    </Typography> 
                     <IconButton aria-label="fingerprint" color="success">
                     <NavLink to={'/producto/' + item.id}
                         key={item.item}> Ver Detalles

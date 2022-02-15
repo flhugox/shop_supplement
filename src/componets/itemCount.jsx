@@ -2,16 +2,15 @@ import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
 import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
+
 import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 import AddIcon from '@mui/icons-material/Add';
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
-import { Button, FormControl, InputLabel, MenuItem, Select } from '@mui/material';
+import { Button } from '@mui/material';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 function ItemCount({ stock, initial, onAdd, onChangeItemCout }) {
     const [count, setCount] = useState(0);
 

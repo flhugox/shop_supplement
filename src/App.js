@@ -3,7 +3,8 @@ import './App.css';
 import ItemDetailContainer from './componets/ItemDetailContainer';
 import ItemListContainer from './componets/ItemListContainer';
 import Navbar from './componets/Navbar';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
+import Cart from './componets/Cart';
 function App() {
   return (
    
@@ -14,6 +15,7 @@ function App() {
             <Route path="/" element={<ItemListContainer />} />
             <Route path="/producto/:productId" element={<ItemDetailContainer />} />
             <Route path="/category/:categoryName" element={<ItemListContainer />} />
+            <Route path="/cart" element={<Cart />} />
             <Route path="*" element={<div>
               <h1>No found 404</h1>
             </div>} />
