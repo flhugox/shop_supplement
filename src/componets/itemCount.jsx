@@ -9,14 +9,17 @@ import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 import AddIcon from '@mui/icons-material/Add';
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
-import { Button } from '@mui/material';
+import { Button, FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import { useState, useEffect } from 'react';
-function ItemCount({ stock, initial, onAdd }) {
+function ItemCount({ stock, initial, onAdd, onChangeItemCout }) {
     const [count, setCount] = useState(0);
 
     function addTo() {
         onAdd(count)
+    }
+    function addToCart(event) {
+        onAdd(event.target.value)
     }
     /* useEffect(function() {
         
@@ -46,22 +49,8 @@ function ItemCount({ stock, initial, onAdd }) {
         <div>
             <Grid container spacing={2}>
                 <Grid item xs={5} md={4}>
-                </Grid>
-                <Grid item xs={5} md={4}>
                     <Card sx={{ maxWidth: 345 }}>
-                        <CardMedia
-                            component="img"
-                            height="140"
-                            image="https://st2.depositphotos.com/1001951/10455/i/450/depositphotos_104554512-stock-photo-bodybuilding-nutrition-supplements-and-chemistry.jpg"
-                            alt="green iguana"
-                        />
                         <CardContent>
-                            <Typography gutterBottom variant="h5" component="div">
-                                Proteina
-                            </Typography>
-                            <Typography variant="body2" color="text.secondary">
-                                Especial para deportistas
-                            </Typography>
                         </CardContent>
                         <CardActions className="cardAcciones">
                             <IconButton aria-label="delete" onClick={restar}>
@@ -71,9 +60,21 @@ function ItemCount({ stock, initial, onAdd }) {
                                 disabled
                                 id="outlined-disabled"
                                 label=""
-                                value={count}
-
-                            />
+                                value={count} />
+                            {
+                                /*
+                                <FormControl fullWidth>
+                                     <InputLabel id="demo-simple-select-label">Age</InputLabel>
+                                     <Select labelId="demo-simple-select-label" id="demo-simple-select" label="Age" onChange={onChangeItemCout}>
+                                         {
+                                             Array.from(Array(stock).keys()).map(function (num) {
+                                                 return <MenuItem key={num + 1} value={num + 1}>{num + 1}</MenuItem>
+                                             })
+                                         }
+                                     </Select>
+                                 </FormControl> 
+                                 */
+                            }
                             <IconButton aria-label="add" onClick={sumar}>
                                 <AddIcon />
                             </IconButton>
