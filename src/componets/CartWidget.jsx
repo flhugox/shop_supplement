@@ -11,7 +11,7 @@ function CartWidget() {
                     </span>
                     <p>Cart</p>
                 </li>*/
-        <NavLink to="category/cart">
+        <NavLink to="/cart">
             <span className="material-icons">
                 shopping_cart
             </span>

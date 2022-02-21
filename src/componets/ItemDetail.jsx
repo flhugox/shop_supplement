@@ -1,17 +1,19 @@
 import { Link } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import { CartContex } from "../context/cartContext";
 import Item from "./item";
 import ItemCount from "./itemCount";
 
 export default function ItemDetail({ item }) {
     const [count, setCount] = useState(0);
+    const {addToCart,cart}= useContext(CartContex)
     useEffect(() => {
-        console.log(count)
     }, [count])
-    function onChangeItemCout(newItem) {
-        console.log(newItem)
+    
+    function onChangeItemCout(newItem) {     
         setCount(newItem)
+        addToCart(newItem,item);
     }
     return (
         <div>
