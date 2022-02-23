@@ -47,12 +47,9 @@ function Navbar() {
               <p>Suplementos</p>
             </NavLink>
           </li>
-        
-
           <li className="navbarListItem">
-              <CartWidget></CartWidget>
+            <CartWidget></CartWidget>
           </li>
-
         </ul>
 
       </nav>

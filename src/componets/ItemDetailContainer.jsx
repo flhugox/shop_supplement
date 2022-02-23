@@ -1,3 +1,4 @@
+import { LinearProgress } from "@mui/material";
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
 
@@ -7,8 +8,7 @@ import ItemDetail from "./ItemDetail";
 function ItemDetailContainer() {
     const [item, setItem] = useState();
     const { productId } = useParams();
-    const { categoryName } = useParams();
-    console.log(categoryName)
+ 
     useEffect(() => {
         getProducts().then(function (products) {
             const item = products.find((i) => i.id === Number(productId))
@@ -20,7 +20,7 @@ function ItemDetailContainer() {
 
     return (
         <div className="item-detail-container">
-            {!item ? <p>Cargando producto ...</p> : <ItemDetail item={item} />}
+            {!item ? <LinearProgress /> : <ItemDetail item={item} />}
         </div>
 
     )

@@ -1,12 +1,16 @@
 import { useEffect, useState } from "react"
 import ItemCount from "./itemCount"
+import { styled } from '@mui/material/styles';
 import { getProducts } from '../api/api'
+import Paper from '@mui/material/Paper';
 import ItemList from "./itemList"
 import { useParams } from "react-router-dom"
+import { Box, Grid, LinearProgress } from "@mui/material"
 function ItemListContainer({ greeting }) {
     const [products, setProducts] = useState([])
     const { categoryName } = useParams();
-    console.log(categoryName)
+
+
     useEffect(() => {
 
         getProducts().then(function (products) {
@@ -22,16 +26,22 @@ function ItemListContainer({ greeting }) {
         });
     }, [categoryName])
     function agregarItems(itemCount) {
-        console.log(itemCount)
+
     }
     return (
         <div>
             <header className="header">
-                <h1 className="logo"><a>{greeting}</a></h1>
+                <h1 className="logo">Productos</h1>
             </header>
-            {products.length}
-            {products.length > 0 ? <ItemList products={products} /> : <p>Cargando...</p>}
-        
+
+
+            {products.length > 0 ?
+                <Box sx={{ flexGrow: 1 }}>
+                    <Grid container spacing={2}>
+                        <ItemList products={products} />
+                    </Grid>
+                </Box> : <LinearProgress />}
+
         </div>
 
     )
