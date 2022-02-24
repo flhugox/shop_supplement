@@ -1,4 +1,6 @@
-
+import { collection, getDocs } from "firebase/firestore"
+import { db } from "../firebase"
+/*
 const products = [
     {
         id: 1,
@@ -24,18 +26,20 @@ const products = [
         pictureUrl: 'https://gnc.com.mx/media/catalog/product/cache/d5c3974ef86b1c3c0d3b6947ccba778f/1/0/107206001-on-gold-standard-100-whey-choc-5-lbs.png',
         category:'otros'
     }
-]
-
+]*/
 const promesa = new Promise(function(resolve,reject){
     setTimeout (function(){
-        resolve(products)
+        getDocs(collection(db, "items")).then((items) => {
+            const products = items.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
+            resolve(products);
+        }).catch((err) => {
+
+        });
     },2000)
 })
-
 function getProducts() {
    return promesa;
 }
-
 export {
     getProducts,
 }

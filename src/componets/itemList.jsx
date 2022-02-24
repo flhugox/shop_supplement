@@ -9,15 +9,13 @@ export default function ItemList({ products }) {
         padding: theme.spacing(1),
         textAlign: 'center',
         color: theme.palette.text.secondary,
-      }));
+    }));
     return (
         <div>
             {
                 products.map(function (producto) {
                     return (
-                      
-                       <Item key={producto.id} item={producto} />
-                       
+                        <Item key={producto.id} item={producto} />
                     )
                 })
             }

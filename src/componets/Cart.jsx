@@ -21,15 +21,12 @@ const Cart = () => {
     bgcolor: 'background.paper',
   };
   const [open, setOpen] = useState(false);
-
   const handleClickOpen = () => {
     setOpen(true);
   };
-
   const handleClose = () => {
     setOpen(false);
   };
-
   const result = cart.reduce((total, currentValue) => total = total + (currentValue.price * currentValue.cantidad), 0);
   console.log(result)
   return (
