@@ -7,6 +7,7 @@ import Navbar from './componets/Navbar';
 import { Routes, Route } from 'react-router-dom';
 import Cart from './componets/Cart';
 import CartContextProvideer from './context/cartContext';
+import EdititemContainer from './componets/EdititemContainer';
 function App() {
   return (
     <CartContextProvideer>
@@ -19,6 +20,7 @@ function App() {
             <Route path="/category/:categoryName" element={<ItemListContainer />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/addProducts" element={<AddItemContainer />} />
+            <Route path="/editProducts/:id" element={<EdititemContainer />} />
             <Route path="*" element={<div>
               <h1>No found 404</h1>
             </div>} />
