@@ -36,9 +36,6 @@ function ItemListContainer({ greeting }) {
         });
     }, []);
 
-    function agregarItems(itemCount) {
-
-    }
     return (
         <div>
             <header className="header">

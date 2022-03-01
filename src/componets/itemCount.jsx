@@ -17,22 +17,6 @@ function ItemCount({ stock, initial, onAdd, onChangeItemCout }) {
     function addTo() {
         onAdd(count)
     }
-    function addToCart(event) {
-        onAdd(event.target.value)
-    }
-    /* useEffect(function() {
-        
-       if( count === 0 ) {
-           setCount(initial);
-       }
-       if (count > stock) {   
-           setCount(count-1)
-       }
-       if (count < 0) {   
-           setCount(count+1)
-       }
-     }, [count])*/
-
     const sumar = () => {
         if (count < stock) {
             setCount(count + 1)
@@ -43,7 +27,6 @@ function ItemCount({ stock, initial, onAdd, onChangeItemCout }) {
             setCount(count - 1)
         }
     }
-
     return (
         <div>
             <Grid container spacing={2}>
@@ -61,18 +44,6 @@ function ItemCount({ stock, initial, onAdd, onChangeItemCout }) {
                                 label=""
                                 value={count} />
                             {
-                                /*
-                                <FormControl fullWidth>
-                                     <InputLabel id="demo-simple-select-label">Age</InputLabel>
-                                     <Select labelId="demo-simple-select-label" id="demo-simple-select" label="Age" onChange={onChangeItemCout}>
-                                         {
-                                             Array.from(Array(stock).keys()).map(function (num) {
-                                                 return <MenuItem key={num + 1} value={num + 1}>{num + 1}</MenuItem>
-                                             })
-                                         }
-                                     </Select>
-                                 </FormControl> 
-                                 */
                             }
                             <IconButton aria-label="add" onClick={sumar}>
                                 <AddIcon />
@@ -89,7 +60,6 @@ function ItemCount({ stock, initial, onAdd, onChangeItemCout }) {
                 </Grid>
             </Grid>
         </div>
-
     )
 }
 export default ItemCount

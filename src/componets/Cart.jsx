@@ -39,7 +39,7 @@ const Cart = () => {
   const [idB, setIB] = useState();
   const handleClickOpen = () => {
     const orderCollection = collection(db, "order")
-      
+
     var products = []
     var buyer = []
     cart.forEach((doc, i) => {
@@ -69,8 +69,6 @@ const Cart = () => {
     }
 
     addDoc(orderCollection, newOrder).then(doc => {
-      console.log("Se guardo el documento", doc.id);
-
       id = doc.id;
       setIB(doc.id);
     }).catch(err => {
@@ -81,11 +79,11 @@ const Cart = () => {
   const handleClose = () => {
     setOpen(false);
   };
-  
+
 
   useEffect(() => {
     setIB(idB);
-  },[id])
+  }, [id])
   return (
     <div>
       {cart.length === 0 ?

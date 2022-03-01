@@ -1,4 +1,4 @@
-import { Button, Grid, Link } from "@mui/material";
+import { Button, Grid } from "@mui/material";
 import { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { CartContex } from "../context/cartContext";
@@ -7,7 +7,7 @@ import ItemCount from "./itemCount";
 
 export default function ItemDetail({ item }) {
     const [count, setCount] = useState(0);
-    const { addToCart, cart } = useContext(CartContex)
+    const { addToCart } = useContext(CartContex)
     useEffect(() => {
     }, [count])
 

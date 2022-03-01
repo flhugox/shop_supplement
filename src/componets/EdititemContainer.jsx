@@ -1,10 +1,10 @@
 import { Button, TextField, Typography } from "@mui/material";
-import { addDoc, collection, doc, getDoc, updateDoc } from "firebase/firestore";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { getStorage, ref, getDownloadURL, uploadBytes } from "firebase/storage";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { db } from "../firebase";
-import CircularProgress from '@mui/material/CircularProgress';
+
 
 const EdititemContainer = () => {
     const { id } = useParams()
@@ -17,7 +17,7 @@ const EdititemContainer = () => {
     const [image, setImage] = useState();
 
     let pictureUrl = "";
-    let saved = false;
+ 
     const handleTitleChange = event => setTitle(event.target.value);
     const handleDescriptionChange = event => setDescription(event.target.value);
     const handleCategoryChange = event => setCategory(event.target.value);
@@ -26,7 +26,6 @@ const EdititemContainer = () => {
     const handleImageChange = event => setImage(event.target.files[0]);
 
     useEffect(() => {
-
         const docRef = doc(db, "items", id);
         getDoc(docRef).then((doc) => {
             const document = doc.data();
@@ -44,20 +43,14 @@ const EdititemContainer = () => {
     }, [id])
 
     const onSubmit = async (event) => {
-        event.preventDefault();
-
-
-      
+        event.preventDefault();      
         const docRef = doc(db, "items", id)
         if (typeof image !== "undefined") {
-
             const storage = getStorage();
             const imageName = (+ new Date()).toString(36);
             const storageRef = ref(storage, `items/${imageName}`);
             const uploadTask = await uploadBytes(storageRef, image)
             pictureUrl = await getDownloadURL(uploadTask.ref)
-
-
         }
 
 
