@@ -22,12 +22,10 @@ const AddItemContainer = () => {
 
     const onSubmit = async (event) => {
         event.preventDefault();
-
-       
         if (![title, category, description].some(field => field === "")) {
             let pictureUrl = "";
             const itemCollection = collection(db, "items")
-                 console.log(image)
+                 
             if (typeof image !== "undefined") {
                 const storage = getStorage();
                 const imageName = (+ new Date()).toString(36);
@@ -36,7 +34,6 @@ const AddItemContainer = () => {
                 const uploadTask = await uploadBytes(storageRef, image)
 
                 pictureUrl = await getDownloadURL(uploadTask.ref)
-                console.log(pictureUrl);
 
             }
             const newItem = {
@@ -47,9 +44,8 @@ const AddItemContainer = () => {
                 stock: stock,
                 pictureUrl:pictureUrl
             }
-            console.log(title)
+          
             addDoc(itemCollection, newItem).then(doc => {
-                console.log("Se guardo el documento", doc.id);
             }).catch(err => {
                 console.log(err);
             })

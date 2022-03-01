@@ -10,11 +10,8 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-
 import Button from '@mui/material/Button';
-
 import MenuItem from '@mui/material/MenuItem';
-
 
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -34,7 +31,7 @@ function Navbar() {
             noWrap
             component="div"
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }} >
-                <img width="80" height="80" src="https://image.shutterstock.com/image-vector/vitamin-c-icon-pill-capsule-600w-1543259795.jpg"></img>
+                <img  alt ="" width="80" height="80" src="https://image.shutterstock.com/image-vector/vitamin-c-icon-pill-capsule-600w-1543259795.jpg"></img>
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -122,8 +119,6 @@ function Navbar() {
         </Toolbar>
       </Container>
     </AppBar>
-
-
   );
 }
 export default Navbar

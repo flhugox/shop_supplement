@@ -18,7 +18,7 @@ function ItemListContainer({ greeting }) {
                 const q = query(categoryProducts, where("category", "==", categoryName));
                 getDocs(q).then((items) => {
                     const products = items.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
-                    console.log(products);
+
                     setProducts(products)
                 }).catch((err) => {
 

@@ -29,7 +29,6 @@ const EdititemContainer = () => {
         const docRef = doc(db, "items", id);
         getDoc(docRef).then((doc) => {
             const document = doc.data();
-            console.log(document.title)
             setTitle(document.title);
             setDescription(document.description);
             setPrice(document.price);

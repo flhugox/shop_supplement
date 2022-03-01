@@ -1,4 +1,4 @@
-import { Alert, AlertTitle, AppBar, Button, Divider, IconButton, List, ListItem, Paper, Toolbar } from "@mui/material";
+import { Alert, AlertTitle, AppBar, Button, IconButton, List, ListItem, Paper, Toolbar } from "@mui/material";
 import { useContext, useEffect, useState } from "react";
 import { CartContex } from "../context/cartContext";
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -79,8 +79,6 @@ const Cart = () => {
   const handleClose = () => {
     setOpen(false);
   };
-
-
   useEffect(() => {
     setIB(idB);
   }, [id])
